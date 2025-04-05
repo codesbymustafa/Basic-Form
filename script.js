@@ -116,3 +116,4 @@ function showFormStatus(message, type) {
         formStatus.classList.remove(type);
     }, 5000);
 }
+
