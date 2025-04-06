@@ -77,7 +77,7 @@ function sendDataToGoogleSheets(data) {
     btn.textContent = 'Submitting...';
     btn.setAttribute('class', 'submitting');
 
-    const scriptURL = `${process.env.GOOGLE_APP_SCRIPT_URL}`;
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzsW22u49Cv1v-m70Fin67CY6NdFL9VisLUvaXkF_fQegwy8yWpYtcMfFIwNUroTYjy/exec';
     
     fetch(scriptURL, {
         method: 'POST',
@@ -98,6 +98,9 @@ function sendDataToGoogleSheets(data) {
     .catch(error => {
         console.error('Error:', error);
         showFormStatus('Network error. Please try again later.', 'error');
+        btn.textContent = 'Submit Registration';
+        btn.setAttribute('class', 'submit');
+
     })
     .finally(() => {
         // Reset button state
