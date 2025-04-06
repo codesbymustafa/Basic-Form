@@ -73,11 +73,11 @@ form.addEventListener('submit', function(e) {
 
 function sendDataToGoogleSheets(data) {
     // Show loading state
-    document.getElementById('submitBtn').disabled = true;
-    document.getElementById('submitBtn').textContent = 'Submitting...';
-    
-    // Replace with your Google Apps Script Web App URL (explained in the next steps)
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzsW22u49Cv1v-m70Fin67CY6NdFL9VisLUvaXkF_fQegwy8yWpYtcMfFIwNUroTYjy/exec';
+    let btn = document.getElementById('submitBtn');
+    btn.textContent = 'Submitting...';
+    btn.setAttribute('class', 'submitting');
+
+    const scriptURL = `${process.env.GOOGLE_APP_SCRIPT_URL}`;
     
     fetch(scriptURL, {
         method: 'POST',
@@ -101,8 +101,8 @@ function sendDataToGoogleSheets(data) {
     })
     .finally(() => {
         // Reset button state
-        document.getElementById('submitBtn').disabled = false;
-        document.getElementById('submitBtn').textContent = 'Submit Registration';
+        btn.textContent = 'Submit Registration';
+        btn.setAttribute('class', 'submit');
     });
 }
 

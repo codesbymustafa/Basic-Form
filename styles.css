@@ -59,6 +59,8 @@ input, select {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
+    transition: all 0.3s ease;
+    
 }
 
 input:focus, select:focus {
@@ -84,24 +86,38 @@ button {
     transition: all 0.3s ease;
 }
 
-#submitBtn {
+.submit {
     background-color: #3498db;
     color: white;
     flex: 1;
+    transition: all 0.3s ease;
 }
 
-#submitBtn:hover {
-    background-color: #2980b9;
+.submitting{
+    background-color: #2ecc71;
+    color: white;
+    cursor: not-allowed;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.submit:hover {
+    background-color: white;
+    color: #3498db;
+    border: 1px solid #3498db;
 }
 
 #resetBtn {
     background-color: #e74c3c;
     color: white;
     flex: 0.5;
+    transition: all 0.3s ease;
 }
 
 #resetBtn:hover {
-    background-color: #c0392b;
+    background-color: white;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
 }
 
 .form-status {
